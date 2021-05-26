@@ -29,28 +29,38 @@ import os
 entidades= pd.read_csv("https://raw.githubusercontent.com/fdealbam/censo2020/main/zmall2020.csv")#, encoding= "Latin-1")
 ######################################################################
 
-#____________VARIABLES LIST
-for_var = [
-#'POBTOT',
-#'POBFEM','POBMAS',
-'P_0A2','P_3A5','P_6A11','P_12A14','P_15A17','POB15_64','P_60YMAS','P_15YMAS','P_18YMAS',
-'PNACOE','PNACOE_F',
-'PRESOE15',
-'PNACOE',
-'P15YM_AN',
-'P15SEC_CO','P18YM_PB',
-'PE_INAC','POCUPADA','POCUPADA_F','POCUPADA_M','PDESOCUP',
-'PSINDER','PDER_IMSS','PDER_SEGP','PAFIL_IPRIV',
-'PCATOLICA','PRO_CRIEVA','POTRAS_REL','PSIN_RELIG',
-'TOTHOG','HOGJEF_F','POBHOG','PHOGJEF_F','PHOGJEF_M',
-'VIVTOT','TVIVHAB','PROM_OCUP','PRO_OCUP_C','VPH_1DOR',
+############################################################################ TEMÄTICA
+variables_tematica= pd.read_csv("https://raw.githubusercontent.com/fdealbam/0entrada/main/diccionario_variables.csv", encoding= "latin-1")
 
-'VPH_C_ELEC','VPH_AGUADV','VPH_TINACO','VPH_CISTER','VPH_EXCSA','VPH_DRENAJ','VPH_REFRI',
-'VPH_LAVAD','VPH_BICI','VPH_TV','VPH_PC','VPH_CEL','VPH_INTER',
-'VPH_SPMVPI','PCDISC_MOT',
-'PCDIvaSC_VIS',
-'PCDISC_LENG',
-'PCDISC_AUD',]
+tema_pre = variables_tematica[variables_tematica.MNEMONICO == "PNACOE"]
+descriptor = tema_pre.iloc[0]['DESCRIPCION']
+tema = tema_pre.iloc[0]['TEMATICA']
+
+
+
+
+#____________VARIABLES LIST
+#for_var = [
+##'POBTOT',
+##'POBFEM','POBMAS',
+#'P_0A2','P_3A5','P_6A11','P_12A14','P_15A17','POB15_64','P_60YMAS','P_15YMAS','P_18YMAS',
+#'PNACOE','PNACOE_F',
+#'PRESOE15',
+#'PNACOE',
+#'P15YM_AN',
+#'P15SEC_CO','P18YM_PB',
+#'PE_INAC','POCUPADA','POCUPADA_F','POCUPADA_M','PDESOCUP',
+#'PSINDER','PDER_IMSS','PDER_SEGP','PAFIL_IPRIV',
+#'PCATOLICA','PRO_CRIEVA','POTRAS_REL','PSIN_RELIG',
+#'TOTHOG','HOGJEF_F','POBHOG','PHOGJEF_F','PHOGJEF_M',
+#'VIVTOT','TVIVHAB','PROM_OCUP','PRO_OCUP_C','VPH_1DOR',
+#
+#'VPH_C_ELEC','VPH_AGUADV','VPH_TINACO','VPH_CISTER','VPH_EXCSA','VPH_DRENAJ','VPH_REFRI',
+#'VPH_LAVAD','VPH_BICI','VPH_TV','VPH_PC','VPH_CEL','VPH_INTER',
+#'VPH_SPMVPI','PCDISC_MOT',
+#'PCDIvaSC_VIS',
+#'PCDISC_LENG',
+#'PCDISC_AUD',]
 
 
 #____________VARIABLES LIST
@@ -129,8 +139,8 @@ menosvaluezm10_p= menos10.iloc[9]["PNACOE_%"]
 
 #_________BULLETS (MÄS+)
 bulletmas_p = ("En valores relativos, la zona metropolitana de "+masnamezm1+" es la que más tiene "+
-               "PNACOE"+")+ ("+str(masvaluezm1_p)+"), "+
-"seguida por "+masnamezm2+" ("+str(masvaluezm2_p)+"); "+
+               descriptor+" ("+str(masvaluezm1_p)+"%), "+
+"seguida por "+masnamezm2+" ("+str(masvaluezm2_p)+"%); "+
  masnamezm3+" ("+str(masvaluezm3_p)+"%); "+
  masnamezm4+" ("+str(masvaluezm4_p)+"%); "+
  masnamezm5+" ("+str(masvaluezm5_p)+"%); "+
@@ -141,7 +151,7 @@ bulletmas_p = ("En valores relativos, la zona metropolitana de "+masnamezm1+" es
  masnamezm10+" ("+str(masvaluezm10_p)+"%).")
 
 bulletmas = ("En valores absolutos, la zona metropolitana de "+masnamezm1+" es la que más tiene "+
-             "PNACOE"+" ("+str(f'{masvaluezm1:,d}')+"), "+
+             descriptor+" ("+str(f'{masvaluezm1:,d}')+"), "+
 "seguida por "+masnamezm2+" ("+str(f'{masvaluezm2:,d}')+" ); "+
  masnamezm3+" ("+str(f'{masvaluezm3:,d}')+"); "+
  masnamezm4+" ("+str(f'{masvaluezm4:,d}')+"); "+
@@ -154,8 +164,8 @@ bulletmas = ("En valores absolutos, la zona metropolitana de "+masnamezm1+" es l
 
 #_________BULLETS (MENOS-)
 bulletmenos_p = ("En valores relativos, la zona metropolitana de "+menosnamezm1+" es la que menos tiene "+
-             "PNACOE"+" ("+str(menosvaluezm1_p)+"%); "+
-"seguida por "+menosnamezm2+" ("+str(menosvaluezm2_p)+"); "+
+             descriptor+" ("+str(menosvaluezm1_p)+"%); "+
+"seguida por "+menosnamezm2+" ("+str(menosvaluezm2_p)+"%); "+
  menosnamezm3+" ("+str(menosvaluezm3_p)+"%); "+
  menosnamezm4+" ("+str(menosvaluezm4_p)+"%); "+
  menosnamezm5+" ("+str(menosvaluezm5_p)+"%); "+
@@ -166,7 +176,7 @@ bulletmenos_p = ("En valores relativos, la zona metropolitana de "+menosnamezm1+
  menosnamezm10+" ("+str(menosvaluezm10_p)+"%).")
 
 bulletmenos = ("En valores absolutos, la zona metropolitana de "+menosnamezm1+" es la que menos tiene "+
-             "PNACOE"+" ("+str(f'{menosvaluezm1:,d}')+"); "+
+             descriptor+" ("+str(f'{menosvaluezm1:,d}')+"); "+
 "seguida por "+menosnamezm2+" ("+str(f'{menosvaluezm2:,d}')+"); "+
  menosnamezm3+" ("+str(f'{menosvaluezm3:,d}')+"); "+
  menosnamezm4+" ("+str(f'{menosvaluezm4:,d}')+"); "+
@@ -463,7 +473,7 @@ row1zmfirst = html.Tr([
                             "padding-right": "0rem",
                               }),
                  html.Td( [(menosvaluezm1_p),"%"], 
-                        style={ "color": "green",
+                        style={ "color": "red",
                             "font-size": ".5em",
                             "width":"1rem",
                             "padding-top": "0rem",   
@@ -619,6 +629,28 @@ table_body2 = [html.Tbody([row0title, row1zmfirst,
           "padding-right": "0em",
           "no_gutters": True})]
 
+############################################################################ MAPAS
+mapas= pd.read_csv("https://raw.githubusercontent.com/fdealbam/0entrada/main/diccionario_mapas.csv", encoding= "UTF-8")
+
+#_______mapas (MAS+)_filtro
+masmapa1_pre=mapas[mapas.NAME_ZM == masnamezm1]
+masmapa2_pre=mapas[mapas.NAME_ZM == masnamezm2]
+masmapa3_pre=mapas[mapas.NAME_ZM == masnamezm3]
+
+#_______mapas (MENOS-)_filtro
+menosmapa1_pre=mapas[mapas.NAME_ZM == menosnamezm1]
+menosmapa2_pre=mapas[mapas.NAME_ZM == menosnamezm2]
+menosmapa3_pre=mapas[mapas.NAME_ZM == menosnamezm3]
+
+#_______mapas (MAS+)_id-url
+masmapa1 = masmapa1_pre.iloc[0]['URL_PATH']
+masmapa2 = masmapa2_pre.iloc[0]['URL_PATH']
+masmapa3 = masmapa3_pre.iloc[0]['URL_PATH']
+#_______mapas (MENOS-)_id-url
+menosmapa1 = menosmapa1_pre.iloc[0]['URL_PATH']
+menosmapa2 = menosmapa2_pre.iloc[0]['URL_PATH']
+menosmapa3 = menosmapa3_pre.iloc[0]['URL_PATH']
+
 
 #####################################################################################################################
 
@@ -640,9 +672,9 @@ buttonsmas = html.Div([
  #                                  "color": "brown","margin-top":"1px"},
  #          ),
    html.P(
-       "Nacidos en otra entidad" ,
-             style={"margin-left":"110px","font-size": "25px", "font-family": "Arial Black",
-                                   "color": "goldenrod", "margin-top":"0px",}),
+       "%s"%(descriptor),
+             style={"margin-left":"110px","font-size": "25px", "font-family": "Arial Black", "margin-top":"0px", "color": "#A52A2A"}),
+    
    html.Hr(style={'borderWidth': "0.3vh", "width": "50%", 
                  "color": "#1B5244", "margin-left":"10px","margin-right":"200px","margin-top":"0px"}),
 
@@ -680,18 +712,18 @@ buttonsmas = html.Div([
     #2dobotón 
     #los tres mapas 
     dbc.Button(([
-                            dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/716738187f9abfca46fcc2b7d965ad2367b57db8/application/static/mapas/map_Valle%20de%20M%C3%A9xico.png?raw=true",
+                            dbc.CardImg(src="%s?raw=true"%(masmapa1),
                                         style={"width": "110px", 
                                                 'margin-left': '-50px',
                                                 'margin-top': '-25px',
                                                }),
                             html.Br(),
-                            dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/716738187f9abfca46fcc2b7d965ad2367b57db8/application/static/mapas/map_Valle%20de%20M%C3%A9xico.png?raw=true",
+                            dbc.CardImg(src="%s?raw=true"%(masmapa2),
                                         style={"width": "110px", 
                                                 'margin-left': '-50px',
                                                }),
                             html.Br(),
-                            dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/716738187f9abfca46fcc2b7d965ad2367b57db8/application/static/mapas/map_Valle%20de%20M%C3%A9xico.png?raw=true",
+                            dbc.CardImg(src="%s?raw=true"%(masmapa3),
                                         style={"width": "110px", 
                                                 'margin-left': '-50px',
                                                }),
@@ -817,19 +849,19 @@ buttonsmenos = html.Div([
     
     #los tres mapas 
     dbc.Button(([
-                            dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/716738187f9abfca46fcc2b7d965ad2367b57db8/application/static/mapas/map_Valle%20de%20M%C3%A9xico.png?raw=true",
+                            dbc.CardImg(src="%s?raw=true"%(menosmapa1),
                                         style={"width": "110px", 
                                                 'margin-left': '-50px',
                                                 'margin-top': '-25px',
                                                }),
             
                             html.Br(),
-                            dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/716738187f9abfca46fcc2b7d965ad2367b57db8/application/static/mapas/map_Valle%20de%20M%C3%A9xico.png?raw=true",
+                            dbc.CardImg(src="%s?raw=true"%(menosmapa2),
                                         style={"width": "110px", 
                                                 'margin-left': '-50px',
                                                }),
                             html.Br(),
-                            dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/716738187f9abfca46fcc2b7d965ad2367b57db8/application/static/mapas/map_Valle%20de%20M%C3%A9xico.png?raw=true",
+                            dbc.CardImg(src="%s?raw=true"%(menosmapa3),
                                         style={"width": "110px", 
                                                 'margin-left': '-50px',
                                                }),
@@ -931,7 +963,7 @@ buttonsmenos = html.Div([
     html.Br(),
     dbc.Row([
     dbc.Col(html.P("Análisis de la variable"),        
-                   style={"margin-left": "9em","font-size": "12px", "font-family": "Arial Black", "color": "purple"}),        
+                   style={"margin-left": "9em","font-size": "12px", "font-family": "Arial Black", "color": "#A52A2A"}),        
              ], justify="start",),
     dbc.Row([
         dbc.Col(html.P(bulletmas_p),
@@ -993,11 +1025,11 @@ buttonsmenos = html.Div([
                                "width": "31em",
                                'margin-left': '510px',
                           }),
-    html.P("Migración",
+    html.P("%s"%(tema),
                     style={#"text-transform": "lowercase",
                           #"font-style": "italic",
                           "margin-top":"-36px",
-                        "color": "goldenrod", 
+                        "color": "#ff8c00", 
                                "font-size": "14px",
                                "font-weight": 'bold',
                                "width": "31em",
