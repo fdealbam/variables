@@ -993,7 +993,7 @@ buttonsmenos = html.Div([
                                "width": "31em",
                                'margin-left': '510px',
                           }),
-    html.P("Vivienda",
+    html.P("Migración",
                     style={#"text-transform": "lowercase",
                           #"font-style": "italic",
                           "margin-top":"-36px",
