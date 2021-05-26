@@ -64,9 +64,13 @@ tema = tema_pre.iloc[0]['TEMATICA']
 
 
 #____________VARIABLES LIST
-#for v in for_var:
+
 mas10   = entidades.sort_values("PNACOE_%" , ascending=False,ignore_index=True ).head(10)
 menos10 = entidades.sort_values("PNACOE_%" , ascending=True,ignore_index=True ).head(10)
+
+masvalue10   = entidades.sort_values("PNACOE" , ascending=False,ignore_index=True ).head(10)
+menosvalue10 = entidades.sort_values("PNACOE" , ascending=True,ignore_index=True ).head(10)
+
 
 #___________ MÄS
 masnamezm1 = mas10.iloc[0]["NOM_ZM"]
@@ -80,16 +84,16 @@ masnamezm8 = mas10.iloc[7]["NOM_ZM"]
 masnamezm9 = mas10.iloc[8]["NOM_ZM"]
 masnamezm10= mas10.iloc[9]["NOM_ZM"]
 
-masvaluezm1 = mas10.iloc[0]["PNACOE"]
-masvaluezm2 = mas10.iloc[1]["PNACOE"]
-masvaluezm3 = mas10.iloc[2]["PNACOE"]
-masvaluezm4 = mas10.iloc[3]["PNACOE"]
-masvaluezm5 = mas10.iloc[4]["PNACOE"]
-masvaluezm6 = mas10.iloc[5]["PNACOE"]
-masvaluezm7 = mas10.iloc[6]["PNACOE"]
-masvaluezm8 = mas10.iloc[7]["PNACOE"]
-masvaluezm9 = mas10.iloc[8]["PNACOE"]
-masvaluezm10= mas10.iloc[9]["PNACOE"]
+masvaluezm1 = masvalue10.iloc[0]["PNACOE"]
+masvaluezm2 = masvalue10.iloc[1]["PNACOE"]
+masvaluezm3 = masvalue10.iloc[2]["PNACOE"]
+masvaluezm4 = masvalue10.iloc[3]["PNACOE"]
+masvaluezm5 = masvalue10.iloc[4]["PNACOE"]
+masvaluezm6 = masvalue10.iloc[5]["PNACOE"]
+masvaluezm7 = masvalue10.iloc[6]["PNACOE"]
+masvaluezm8 = masvalue10.iloc[7]["PNACOE"]
+masvaluezm9 = masvalue10.iloc[8]["PNACOE"]
+masvaluezm10= masvalue10.iloc[9]["PNACOE"]
 
 masvaluezm1_p = mas10.iloc[0]["PNACOE_%"]
 masvaluezm2_p = mas10.iloc[1]["PNACOE_%"]
@@ -114,16 +118,16 @@ menosnamezm8 = menos10.iloc[7]["NOM_ZM"]
 menosnamezm9 = menos10.iloc[8]["NOM_ZM"]
 menosnamezm10= menos10.iloc[9]["NOM_ZM"]
 
-menosvaluezm1 = menos10.iloc[0]["PNACOE"]
-menosvaluezm2 = menos10.iloc[1]["PNACOE"]
-menosvaluezm3 = menos10.iloc[2]["PNACOE"]
-menosvaluezm4 = menos10.iloc[3]["PNACOE"]
-menosvaluezm5 = menos10.iloc[4]["PNACOE"]
-menosvaluezm6 = menos10.iloc[5]["PNACOE"]
-menosvaluezm7 = menos10.iloc[6]["PNACOE"]
-menosvaluezm8 = menos10.iloc[7]["PNACOE"]
-menosvaluezm9 = menos10.iloc[8]["PNACOE"]
-menosvaluezm10= menos10.iloc[9]["PNACOE"]
+menosvaluezm1 = menosvalue10.iloc[0]["PNACOE"]
+menosvaluezm2 = menosvalue10.iloc[1]["PNACOE"]
+menosvaluezm3 = menosvalue10.iloc[2]["PNACOE"]
+menosvaluezm4 = menosvalue10.iloc[3]["PNACOE"]
+menosvaluezm5 = menosvalue10.iloc[4]["PNACOE"]
+menosvaluezm6 = menosvalue10.iloc[5]["PNACOE"]
+menosvaluezm7 = menosvalue10.iloc[6]["PNACOE"]
+menosvaluezm8 = menosvalue10.iloc[7]["PNACOE"]
+menosvaluezm9 = menosvalue10.iloc[8]["PNACOE"]
+menosvaluezm10= menosvalue10.iloc[9]["PNACOE"]
 
 menosvaluezm1_p = menos10.iloc[0]["PNACOE_%"]
 menosvaluezm2_p = menos10.iloc[1]["PNACOE_%"]
@@ -706,7 +710,7 @@ buttonsmas = html.Div([
                    "width": "18em",
                    "height": "14em",  
                    
-                 } ,disabled=True),
+                 },disabled=True),
 
     
     #2dobotón 
@@ -804,7 +808,7 @@ buttonsmas = html.Div([
                           'height': '24em',
                           'width': '13em',
                           "textAlign": "left",
-                                      })),
+                                      },disabled=True)),
       ])
        
 ############################################################################################
@@ -843,7 +847,7 @@ buttonsmenos = html.Div([
                   'margin-left': '10px',
                    "width": "18em",
                    "height": "14em",  
-                 } ,disabled=True),
+                 }, disabled=True),
 
     
     
@@ -1029,7 +1033,7 @@ buttonsmenos = html.Div([
                     style={#"text-transform": "lowercase",
                           #"font-style": "italic",
                           "margin-top":"-36px",
-                        "color": "#ff8c00", 
+                        "color": "#A52A2A", 
                                "font-size": "14px",
                                "font-weight": 'bold',
                                "width": "31em",
@@ -1090,4 +1094,3 @@ app.layout = html.Div(
 if __name__ == '__main__':
     app.run_server(use_reloader = False)
  
-
