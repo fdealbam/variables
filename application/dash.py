@@ -1,3 +1,5 @@
+#Variables
+
 import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
@@ -220,7 +222,7 @@ row0title = html.Tr([
 
 row1zmfirst = html.Tr([
                 html.Td(masnamezm1, 
-                      style={ "color": "black",
+                      style={ "color": "green",
                           "font-size": ".5em",
                           #"font-family": "Arial",
                             "width":"14rem",
@@ -441,7 +443,7 @@ row0title = html.Tr([
 
 row1zmfirst = html.Tr([
                 html.Td(menosnamezm1, 
-                      style={ "color": "black",
+                      style={ "color": "red",
                           "font-size": ".5em",
                           #"font-family": "Arial",
                             "width":"14rem",
@@ -626,40 +628,43 @@ buttonsmas = html.Div([
   html.Br(),
   html.Br(),
     #titulo variable
-    html.P("PISO DE TIERRA", style={"margin-left":"130px","font-size": "25px", "font-family": "Arial Black",
-                                   "color": "gray"}),
-   html.Hr(style={'borderWidth': "0.3vh", "width": "50%", 
-                  "color": "#1B5244", "margin-left":"10px","margin-right":"200px","margin-top":"-20px"}),
-    
+
+#   html.P("PISO DE TIERRA", style={"margin-left":"110px","font-size": "25px", "font-family": "Arial Black",
+#                                  "color": "gray"}),
+#  html.Hr(style={'borderWidth': "0.3vh", "width": "50%", 
+#                 "color": "#1B5244", "margin-left":"10px","margin-right":"200px","margin-top":"-20px"}),
+#   
     #subtitulo
-     html.P("CON ", 
-            style={"margin-left":"130px","font-size": "17px", "font-family": "Arial Black",
-                                   "color": "brown","margin-top":"-15px"},
-           ),
-    html.P(
-        "PISO DE TIERRA" ,
-            style={"margin-left":"180px","font-size": "17px", "font-family": "Arial Black",
-                                   "color": "gray", "margin-top":"-41px","margin-top":"-41px"}),
- 
+ #  html.P("CON ", 
+ #          style={"margin-left":"110px","font-size": "25px", "font-family": "Arial Black",
+ #                                  "color": "brown","margin-top":"1px"},
+ #          ),
+   html.P(
+       "NOMBREVARIABLE" ,
+             style={"margin-left":"110px","font-size": "25px", "font-family": "Arial Black",
+                                   "color": "gray", "margin-top":"0px",}),
+   html.Hr(style={'borderWidth': "0.3vh", "width": "50%", 
+                 "color": "#1B5244", "margin-left":"10px","margin-right":"200px","margin-top":"0px"}),
 
 
-  html.H6("+ Las 10 con  ", 
-                    style={"text-transform": "lowercase",
+
+  html.P(" Las 10 con", 
+                    style={#"text-transform": "lowercase",
                            'backgroundColor': 'beige',
                         "color": "gray", 
                                "font-size": "16px",
                                "font-weight": 'bold',
                          "width": "31em",
-                        'margin-left': '130px',
+                        'margin-left': '110px',
                           }),
-     html.H6("más   ", 
-                    style={"text-transform": "lowercase",
-                           #'backgroundColor': 'beige',
-                        "color": "black", 
+     html.P("más", 
+                    style={#"text-transform": "lowercase",
+                           'backgroundColor': 'beige',
+                        "color": "black", "font-family": "Arial Black",
                                "font-size": "16px",
                                "font-weight": 'bold',
-                         #"width": "21em",
-                        'margin-left': '260px', "margin-top":"-27px"
+                         "width": "21em",
+                        'margin-left': '205px', "margin-top":"-41px"
                           }),
     #1dobotón 
     dbc.Button([dbc.Table(table_body), 
@@ -778,25 +783,25 @@ buttonsmenos = html.Div([
   html.Br(),
     
     #nueva edición 
-  html.H6("-Las 10 con ", 
-                    style={"text-transform": "lowercase",
+  html.P(" Las 10 con ", 
+                    style={#"text-transform": "lowercase",
                            'backgroundColor': 'navajowhite',
                         "color": "gray", 
                                "font-size": "16px",
                                "font-weight": 'bold',
                                "width": "31em",
-                               'margin-left': '130px',
+                               'margin-left': '110px',
                           }),
     
-      html.H6("menos ", 
-                    style={"text-transform": "lowercase",
+      html.P("menos ", 
+                    style={#"text-transform": "lowercase",
                            #'backgroundColor': 'navajowhite',
-                        "color": "black", 
+                        "color": "black", "font-family": "Arial Black",
                                "font-size": "16px",
                                "font-weight": 'bold',
                              #  "width": "21em",
-                               'margin-left': '250px',
-                           "margin-top":"-26px",
+                               'margin-left': '205px',
+                           "margin-top":"-41px",
                           }),
     
     #2dobotón 
@@ -808,6 +813,7 @@ buttonsmenos = html.Div([
                    "height": "14em",  
                  } ,disabled=True),
 
+    
     
     #los tres mapas 
     dbc.Button(([
@@ -910,12 +916,12 @@ buttonsmenos = html.Div([
                   #"box-shadow": "20px 40px 60px gray",
                          },disabled=True)),
      #fuente
-     html.P("Censo Nacional de Población y Vivienda 2020",
+     html.P("Censo Nacional de Población y Vivienda, 2020",
                     style={#"text-transform": "lowercase",
                            "font-style": "italic",
                           
                         "color": "gray", 
-                               "font-size": "10px",
+                               "font-size": "9px",
                                "font-weight": 'bold',
                                "width": "31em",
                                'margin-left': '130px',
@@ -925,29 +931,30 @@ buttonsmenos = html.Div([
     html.Br(),
     dbc.Row([
     dbc.Col(html.P("Análisis de la variable"),        
-                   style={"margin-left": "4em","font-size": "12px", "font-family": "Arial Black", "color": "purple"}),        
+                   style={"margin-left": "9em","font-size": "12px", "font-family": "Arial Black", "color": "purple"}),        
              ], justify="start",),
     dbc.Row([
         dbc.Col(html.P(bulletmas_p),
-               width={'size': 5, 'offset': 1}, style={"margin-left": "5em", "margin-bottom": "-1em",
+               width={'size': 5, 'offset': 1}, 
+                style={"margin-left": "13em", "margin-bottom": "-1em",
                                                       "font-size": "8px",}),
                ], justify="start",),
     
     dbc.Row([
         dbc.Col(html.P(bulletmas),
-               width={'size': 5, 'offset': 1}, style={"margin-left": "5em", "margin-bottom": "-1em",
+               width={'size': 5, 'offset': 1}, style={"margin-left": "13em", "margin-bottom": "-1em",
                                                       "font-size": "8px",}),
                ], justify="start",),
     
     dbc.Row([
         dbc.Col(html.P(bulletmenos_p),
-               width={'size': 5, 'offset': 1}, style={"margin-left": "5em", "margin-bottom": "-1em",
+               width={'size': 5, 'offset': 1}, style={"margin-left": "13em", "margin-bottom": "-1em",
                                                       "font-size": "8px",}),
                ], justify="start",),
     
     dbc.Row([
         dbc.Col(html.P(bulletmenos),
-               width={'size': 5, 'offset': 1}, style={"margin-left": "5em", "margin-bottom": "-1em",
+               width={'size': 5, 'offset': 1}, style={"margin-left": "13em", "margin-bottom": "-1em",
                                                       "font-size": "8px",}),
                ], justify="start",),
     
@@ -970,11 +977,11 @@ buttonsmenos = html.Div([
                                "font-size": "14px",
                            
                                "width": "31em",
-                               'margin-left': '600px',
+                               'margin-left': '510px',
                           }),
     
      html.Hr(style={'borderWidth': "0.3vh", "width": "12%", 
-                  "color": "#1B5244", "margin-left":"600px","margin-right":"200px", "margin-top":"-15px"}),
+                  "color": "#1B5244", "margin-left":"510px","margin-right":"200px", "margin-top":"-15px"}),
     
     html.P("Variables de",
                     style={#"text-transform": "lowercase",
@@ -984,7 +991,7 @@ buttonsmenos = html.Div([
                                "font-size": "14px",
                            
                                "width": "31em",
-                               'margin-left': '600px',
+                               'margin-left': '510px',
                           }),
     html.P("Vivienda",
                     style={#"text-transform": "lowercase",
@@ -994,7 +1001,7 @@ buttonsmenos = html.Div([
                                "font-size": "14px",
                                "font-weight": 'bold',
                                "width": "31em",
-                               'margin-left': '695px',
+                               'margin-left': '605px',
                           }),
  
         
