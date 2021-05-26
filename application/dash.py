@@ -640,7 +640,7 @@ buttonsmas = html.Div([
  #                                  "color": "brown","margin-top":"1px"},
  #          ),
    html.P(
-       "NOMBREVARIABLE" ,
+       "Nacidos en otra entidad" ,
              style={"margin-left":"110px","font-size": "25px", "font-family": "Arial Black",
                                    "color": "gray", "margin-top":"0px",}),
    html.Hr(style={'borderWidth': "0.3vh", "width": "50%", 
